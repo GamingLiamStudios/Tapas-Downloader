@@ -15,6 +15,9 @@ import re
 import requests
 import http.cookiejar
 
+def escape_string(input: str):
+    return input.replace('/', '-')
+
 # parse input and settup help
 parser = argparse.ArgumentParser(description='Downloads Comics/Novels from \'tapas.io\'.\nIf folder of downloaded comic is found, it will only update (can be disabled with -f/--force).', formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('url', metavar='URL/name', type=str, nargs='+',
@@ -61,7 +64,7 @@ for urlCount, url in enumerate(args.url):
     series_id = series_info['data']['id']
     series_name = series_info['data']['url']
     series_title = series_info['data']['title']
-    series_title_escaped = series_info['data']['escape_title']
+    series_title_escaped = escape_string(series_info['data']['escape_title'])
     series_genre = series_info['data']['genre']['name']
 
     series_is_book = series_info['data']['book'] and not series_info['data']['comic']
@@ -183,7 +186,7 @@ for urlCount, url in enumerate(args.url):
 
         # Download comic episodes
         for ord_num, episode in data.items():
-            filename = f"{ord_num} - {episode['title']}"
+            filename = f"{ord_num} - {escape_string(episode['title'])}"
             filepath = os.path.join(save_path, f"{filename}.cbz")
             if os.path.exists(filepath) and not args.force:
                 print(f"Skipping '{filename}' as already exists")

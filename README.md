@@ -10,8 +10,6 @@ Only dependencies for this is Python and UV.
 
 Simply run `uv run downloader.py [series-ids]` in the project root.
 
-Usage of `downloader.py`:
-
 ```
 usage: downloader.py [-h] [-f] [-c [PATH]] [-o [PATH]] [-t] [-d DELAY] URL/name [URL/name ...]
 
