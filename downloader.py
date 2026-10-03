@@ -16,7 +16,7 @@ import requests
 import http.cookiejar
 
 # parse input and settup help
-parser = argparse.ArgumentParser(description='Downloads Comics from \'https://tapas.io\'.\nIf folder of downloaded comic is found, it will only update (can be disabled with -f/--force).', formatter_class=argparse.RawTextHelpFormatter)
+parser = argparse.ArgumentParser(description='Downloads Comics/Novels from \'tapas.io\'.\nIf folder of downloaded comic is found, it will only update (can be disabled with -f/--force).', formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('url', metavar='URL/name', type=str, nargs='+',
                     help='URL or URL name to comic\nGo to the comic you want to download (any page)\nRightclick on the comic name in the upper left corner and select "Copy linkaddress" (Or similar) or just use the name behind series in the url\nExamples: https://tapas.io/series/Erma, RavenWolf, ...')
 parser.add_argument('-f', '--force', action="store_true", help='Disables updater.')
