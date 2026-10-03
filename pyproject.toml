@@ -1,0 +1,12 @@
+[project]
+name = "tapas-downloader"
+version = "0.1"
+requires-python = ">=3.14"
+
+dependencies = [
+    "pyquery",
+    "requests",
+    "ebooklib",
+    "cbz",
+    "tqdm",
+]
